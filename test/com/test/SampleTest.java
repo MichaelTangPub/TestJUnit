@@ -1,4 +1,4 @@
-package com.test
+package com.test;
 
 import org.junit.Test;
 import org.junit.Ignore;
