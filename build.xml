@@ -10,6 +10,16 @@
     <property name="target.classes.test.dir" location="${target.dir}/test/classes"/>
  
     <property name="target.report.dir" location="${target.dir}/report"/>
+	
+	<path id="src.classpath">
+		<pathelement location="${target.classes.java.dir}"/>
+	</path>
+	
+	<path id="test.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="junit-4.12.jar"/>
+		</fileset>
+	</path>
  
     <target name="compile.java">
         <mkdir dir="${target.classes.java.dir}"/>
@@ -23,8 +33,8 @@
         <javac destdir="${target.classes.test.dir}" includeantruntime="false" >
             <src path="${test.dir}"/>
             <classpath>
-                <pathelement location="${target.classes.java.dir}"/>
-                <pathelement path="lib/junit-4.12.jar"/>
+                <path refid="src.classpath"/>
+				<path refid="test.classpath"/>
             </classpath>
         </javac>
     </target>
@@ -43,9 +53,8 @@
                 </fileset>
             </batchtest>
             <classpath>
-                <pathelement location="${target.classes.java.dir}"/>
-                <pathelement location="${target.classes.test.dir}"/>
-                <pathelement path="lib/junit-4.10.jar"/>
+                <path refid="src.classpath"/>
+				<path refid="test.classpath"/>
             </classpath>
         </junit>
     </target>
