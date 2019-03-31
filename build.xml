@@ -4,6 +4,7 @@
     <property name="project.dir" location="."/>
     <property name="src.dir" location="${project.dir}/src"/>
     <property name="test.dir" location="${project.dir}/test"/>
+	<property name="lib.dir" location="${project.dir}/lib"/>
  
     <property name="target.dir" location="build"/>
     <property name="target.classes.java.dir" location="${target.dir}/classes"/>
